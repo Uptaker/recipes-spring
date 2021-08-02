@@ -6,7 +6,18 @@
 </head>
 <body>
 
-<h1>Recipes AAAAAAAAAAAAAA</h1>
+<h2>Recipes</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}"></td>
+        <td th:text="${recipe.description}"></td>
+    </tr>
+</table>
 
 </body>
 </html>
