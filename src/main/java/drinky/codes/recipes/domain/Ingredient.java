@@ -15,17 +15,17 @@ public class Ingredient {
     private BigDecimal amount;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasure oum;
+    private UnitOfMeasure unitOfMeasure;
 
     @ManyToOne
     private Recipe recipe;
 
-    public UnitOfMeasure getOum() {
-        return oum;
+    public UnitOfMeasure getUnitOfMeasure() {
+        return unitOfMeasure;
     }
 
-    public void setOum(UnitOfMeasure oum) {
-        this.oum = oum;
+    public void setUnitOfMeasure(UnitOfMeasure unitOfMeasure) {
+        this.unitOfMeasure = unitOfMeasure;
     }
 
     public Long getId() {
