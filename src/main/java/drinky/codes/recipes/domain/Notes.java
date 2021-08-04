@@ -1,5 +1,7 @@
 package drinky.codes.recipes.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity

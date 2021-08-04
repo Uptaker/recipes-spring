@@ -1,5 +1,7 @@
 package drinky.codes.recipes.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 

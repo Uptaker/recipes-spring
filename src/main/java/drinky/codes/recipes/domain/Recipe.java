@@ -1,5 +1,7 @@
 package drinky.codes.recipes.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -39,28 +41,19 @@ public class Recipe {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    public Set<Category> getCategories() {
-        return categories;
+    public Recipe() {
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
+    public void setNotes(Notes notes) {
+
+        this.notes = notes;
+        notes.setRecipe(this);
     }
 
-    public Difficulty getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public Set<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(Set<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
     }
 
     public Long getId() {
@@ -127,6 +120,14 @@ public class Recipe {
         this.directions = directions;
     }
 
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
     public Byte[] getImage() {
         return image;
     }
@@ -135,19 +136,23 @@ public class Recipe {
         this.image = image;
     }
 
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public Notes getNotes() {
         return notes;
     }
 
-    public void setNotes(Notes notes) {
-
-        this.notes = notes;
-        notes.setRecipe(this);
+    public Set<Category> getCategories() {
+        return categories;
     }
 
-    public Recipe addIngredient(Ingredient ingredient) {
-        ingredient.setRecipe(this);
-        this.ingredients.add(ingredient);
-        return this;
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
