@@ -1,2 +1,2 @@
 # recipes-spring
-Recipe project using Spring MVC
+Recipe project using Spring MVC.
